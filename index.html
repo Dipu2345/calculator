@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+       #middle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 60px;
+       }
+        div ul li{
+            display: inline-block;
+            list-style: none;
+            margin-right: 20px;
+        }
+        .btn button{
+            
+        padding: 10px 9px;
+        margin-right: 15px;
+        margin-top: 10px;
+        width: 19%;
+        background-color: rgb(10, 11, 11);
+        border-radius: 10px;
+        color: white;
+        border: 1px solid black;
+        box-shadow: 0px 3px 10px black;
+
+        }
+        .button:hover{
+            cursor: pointer;
+        }
+        .show_Result{
+            width: 100%;
+            height: 90px;
+            background-color: transparent;
+        }
+        .calc{
+            box-shadow: 0px 0px 20px 2px black;
+            width: 344px;
+            height: 486px;
+            border: 2px solid black;
+            border-radius: 10px;
+
+        }
+        .show_Result h4{
+            font-size: 80px;
+            margin-top: 0px;
+        }
+        .functions{
+            margin-left: 15px;
+            margin-bottom: 18px;
+            margin-top: 43px;
+        }
+        input{
+            margin-top: 5px;
+            width: 87.7%;
+            height: 80%;
+            font-size: 41px;
+            border: none;
+            margin-left: 18px;
+            box-shadow: 0px 1px 20px black;
+        }
+        input::placeholder{
+            font-size: large;
+        }
+        .show_Result p{
+          text-align: center;
+          margin-top: 11px;
+        }
+        .line{
+            margin-top: 35px;
+            width: 100%;
+            transform: scale(1,1.1);
+        }
+        button:hover{
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="middle">
+    <div class="calc">
+        <div class="show_Result">
+            <p>Cello</p>
+            <hr>
+            <input type="text" name="" id="result">
+        </div>
+        <div class="line"><hr></div>
+        <div class="functions">
+            <div class="btn">
+                <button class="button">%</button>
+                <button class="button">CE</button>
+                <button class="button">BACK</button>
+                <button class="button">CLOSE</button>
+
+            </div>
+            <div class="btn">
+                <button class="button" >1/x</button>
+                <button class="button">x<sup>2</sup></button>
+                <button class="button">root</button>
+                <button class="button">/</button>
+
+            </div>
+            <div class="btn">
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button class="button">*</button>
+
+            </div>
+            <div class="btn">
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button">-</button>
+
+            </div>
+            <div class="btn">
+                <button class="button" onclick="tr()">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                <button class="button">+</button>
+
+            </div>
+            <div class="btn">
+                <button class="button"><sup>+</sup>/<sub>-</sub></button>
+                <button class="button">0</button>
+                <button class="button" style="font-weight: bolder;">.</button>
+                <button class="button" style="background-color: rgb(17, 56, 17);color: white;">=</button>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+    <!-- //<h1 id="result">hbhb</h1> -->
+    <script>
+        
+     let string="";
+     let btn = document.querySelectorAll(".button");
+     let arr=Array.from(btn)
+     arr.forEach((btn)=>{
+        btn.addEventListener('click',(val)=>{
+            if(btn.innerHTML=="="){
+              string =  eval(string)
+              document.getElementById("result").value=string;
+            }
+            else if(btn.innerHTML=="CLOSE"){
+                string =""
+                document.getElementById("result").value=string;
+            }   
+            else if(btn.innerHTML=="CE"){
+                string =""
+                document.getElementById("result").value=string;
+            }   
+            else if(btn.innerHTML=="BACK"){
+            //    let val= document.getElementById("result").value;
+            console.log(typeof(string));
+               let ars = string.split("");
+               console.log(typeof(ars));
+                ars.pop()
+                console.log(ars);
+                string= ars.join("")
+               document.getElementById("result").value=string;
+            }
+            else{
+            string=string+btn.innerHTML;
+            console.log(string)
+            document.getElementById("result").value=string;
+            }
+     });
+  
+     })
+     
+
+    // ================================================================================
+    // let string="";
+    // let buttons = document.querySelectorAll(".button");
+    // Array.from(buttons).forEach((button)=>{
+    //     button.addEventListener('click',(val)=>{
+    //         console.log(val.target.innerHTML);
+            
+    //         string=string+button.innerHTML;
+    //         document.getElementById("result").value=string;
+    //     })
+    // })
+     function tr(){
+       let r= document.getElementsByClassName("button");
+       console.log(r)
+       Array.from(r).forEach((ele)=>{
+        
+       })
+       
+
+     }
+    </script>
+</body>
+</html>
