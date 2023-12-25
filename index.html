@@ -90,7 +90,7 @@
         <div class="show_Result">
             <p>Cello</p>
             <hr>
-            <input type="text" name="" id="result" placeholder="Made by Debashis">
+            <input type="text" name="" id="result" placeholder="0" style="text-align: right;">
         </div>
         <div class="line"><hr></div>
         <div class="functions">
@@ -102,8 +102,8 @@
 
             </div>
             <div class="btn">
-                <button class="button" >1/x</button>
-                <button class="button">x<sup>2</sup></button>
+                <button class="button" value="1x">1/x</button>
+                <button class="button" value="x2">x<sup>2</sup></button>
                 <button class="button">root</button>
                 <button class="button">/</button>
 
@@ -130,7 +130,7 @@
 
             </div>
             <div class="btn">
-                <button class="button"><sup>+</sup>/<sub>-</sub></button>
+                <button class="button">00</button>
                 <button class="button">0</button>
                 <button class="button" style="font-weight: bolder;">.</button>
                 <button class="button" style="background-color: rgb(17, 56, 17);color: white;">=</button>
@@ -160,14 +160,24 @@
                 string =""
                 document.getElementById("result").value=string;
             }   
+            else if(btn.value=="x2"){
+                string =string*string;
+                document.getElementById("result").value=string;
+            }   
+            else if(btn.value=="1x"){
+                string =string/2;
+                document.getElementById("result").value=string;
+            }   
+
             else if(btn.innerHTML=="BACK"){
             //    let val= document.getElementById("result").value;
-            console.log(typeof(string));
-               let ars = string.split("");
-               console.log(typeof(ars));
-                ars.pop()
-                console.log(ars);
-                string= ars.join("")
+        
+            //    let ars = string.split("");
+            //     ars.pop()
+            //     string= ars.join("")
+            let val  = document.getElementById("result").value;
+            val=val.slice(0,-1);
+            string = val;    
                document.getElementById("result").value=string;
             }
             else{
@@ -191,15 +201,7 @@
     //         document.getElementById("result").value=string;
     //     })
     // })
-     function tr(){
-       let r= document.getElementsByClassName("button");
-       console.log(r)
-       Array.from(r).forEach((ele)=>{
-        
-       })
-       
-
-     }
+    
     </script>
 </body>
 </html>
